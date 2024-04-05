@@ -3,9 +3,7 @@ using UnityEngine.UI;
 
 public class combination : MonoBehaviour
 {
-    public GameObject combinedElementPrefab;
-    public static string combinedString;
-    public ButtonActivation buttonActivation;
+    public GameObject combinedElementPrefab; 
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -13,10 +11,10 @@ public class combination : MonoBehaviour
 
         if (otherElement != null)
         {
-            combinedString = CombineElements(otherElement);
+            gameManager.Instance.productTag = CombineElements(otherElement);
         } else
         {
-            combinedString = "";
+            gameManager.Instance.productTag = "NO RETURN TAG PROVIDED";
         }
 
         if (collision.gameObject.name == "delete")
@@ -48,26 +46,16 @@ public class combination : MonoBehaviour
  
             // Destroy the combining elements
             Destroy(otherElement.gameObject);
-
             Destroy(this.gameObject);
 
-            //what element
-            Debug.Log("The element " + combinedElementPrefab.tag + " has been created");
-
             // Spawn the combined element
-               //combinedString = combinedElementPrefab.tag;
-            gameManager.Instance.productTag = combinedElementPrefab.tag;
-            Debug.Log(gameManager.Instance.productTag + " from combination");
             Instantiate(combinedElementPrefab, transform.position, Quaternion.identity);
-
-            ButtonActivation.activationParent();
-
-            return combinedString;
-
+            Debug.Log("CombineElements(): " + combinedElementPrefab.tag);
+            return combinedElementPrefab.tag;
         }
         else
         {
-            return "";
+            return "EMPTY STRING";
         }
     }
 }

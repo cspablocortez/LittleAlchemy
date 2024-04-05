@@ -28,6 +28,9 @@ public class gameManager : MonoBehaviour
 
     void Update()
     {
+        // productTag is the new element created
+        Debug.Log("GameManager: " + productTag);
 
+            // ButtonActivation.activationParent();
     }
 }
