@@ -17,10 +17,10 @@ public class ButtonActivation : MonoBehaviour
         recievedString = gameManager.Instance.productTag;
     }
 
-    public static void activationParent ()
-    {
-        ActivateButton(contentObject.transform, gameManager.Instance.productTag);
-    }
+    // public static void activationParent ()
+    // {
+    //     ActivateButton(contentObject.transform, gameManager.Instance.productTag);
+    // }
 
 
     public bool ActivateButton(Transform parent, string buttonTag)
