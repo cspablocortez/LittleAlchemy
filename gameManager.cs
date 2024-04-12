@@ -7,6 +7,9 @@ public class gameManager : MonoBehaviour
     public static string combinationString = "";
     public static gameManager Instance { get; private set; }
     public string productTag = "";
+    public GameObject content;
+
+
 
     void Awake()
     {
@@ -30,7 +33,7 @@ public class gameManager : MonoBehaviour
     {
         // productTag is the new element created
         Debug.Log("GameManager: " + productTag);
-
-            // ButtonActivation.activationParent();
+        bool buttonActivated = ButtonActivation.ActivateButton(content.transform, productTag);
+        Debug.Log("buttonActivated? " + buttonActivated);
     }
 }
