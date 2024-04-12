@@ -3,4 +3,6 @@
 
 ## Notes
 
-Canvas > Scroll > Content > 4 buttons
+Canvas > Scroll > Content > Content [4 buttons]
+
+Q: ButtonActivation.cs:7 field initialized to Content (see above)
