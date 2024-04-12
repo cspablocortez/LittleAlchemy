@@ -29,6 +29,7 @@ public class combination : MonoBehaviour
         if ((this.CompareTag("water") && otherElement.CompareTag("air")) ||
             (this.CompareTag("fire") && otherElement.CompareTag("earth")) ||
             (this.CompareTag("water") && otherElement.CompareTag("fire")) ||
+            (this.CompareTag("fire") && otherElement.CompareTag("water")) ||
             (this.CompareTag("earth") && otherElement.CompareTag("water")) ||
             (this.CompareTag("lava") && otherElement.CompareTag("water")) ||
             (this.CompareTag("mud") && otherElement.CompareTag("fire")) ||
