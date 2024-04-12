@@ -23,7 +23,7 @@ public class ButtonActivation : MonoBehaviour
     // }
 
 
-    public bool ActivateButton(Transform parent, string buttonTag)
+    public static bool ActivateButton(Transform parent, string buttonTag)
     {
         foreach (Transform child in parent)
         {
