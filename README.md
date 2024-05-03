@@ -7,7 +7,7 @@ implementation from the end of class on Thursday 2 May.
 
 The new files are as follows:
 
-1. `UIManager.cs` - a file to be attached to the `Canvas` element to diable all 
+1. `UIManager.cs` - a file to be attached to the `Canvas` element to disable all 
 buttons at the start of the game.
 
 2. `CollisionScript.cs` - in this demo of the collision, you will see the call 
