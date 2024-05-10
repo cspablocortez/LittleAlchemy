@@ -29,7 +29,7 @@ public class UIManager : MonoBehaviour
     public void EnableButtonByTag(string tag) 
     {
           // Find and activate the button with the combined tag
-            GameObject buttonObject = GameObject.FindGameObjectWithTag(tag);
+            GameObject buttonObject = GameObject.FindGameObjectWithTag(tag); // this replaces one of the existing functions in ButtonActivation.cs
             if (buttonObject != null)
             {
                 buttonObject.GetComponent<UnityEngine.UI.Button>().interactable = true;
