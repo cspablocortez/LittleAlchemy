@@ -24,4 +24,4 @@ field be initialized from the inspector before starting the game.
 
 2. Follow steps listed in `UIManager.cs`
 
-3. 
+3. Refactor previous scripts and remove unused or unnecessary code.
