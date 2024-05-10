@@ -17,5 +17,11 @@ given tag.
 *Note:* The use of `UIManager.cs` requires that the buttons array 
 field be initialized from the inspector before starting the game.
 
-For next lesson, we will go over these changes and implement them to the 
-project. Feel free to attempt the implementation before our next class.
+
+### Thursday 16 May
+
+1. We will create a UI Manager script 
+
+2. Follow steps listed in `UIManager.cs`
+
+3. 
