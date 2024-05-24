@@ -47,7 +47,7 @@ public class UIManager : MonoBehaviour
 
     public void EnableStarterButtons() 
     {
-       for (int = 0; i < 4; i++) 
+       for (int i = 0; i < 4; i++) 
        {
           buttons[i].interactable = true;
        }
