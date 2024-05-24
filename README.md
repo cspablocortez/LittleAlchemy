@@ -3,10 +3,8 @@
 
 The set of C# scripts for Brandon's Little Alchemy Unity project.
 
-This repository includes old files from previous classes and the new 
-implementation from the end of class on Thursday 2 May.
 
-### Thursday May 23
+## Thursday May 23
 
 The GameObjects are now able to collide with each other and activate buttons by
 tag upon collision. Following last lesson's work, we will implement the button 
@@ -17,14 +15,16 @@ The new files are as follows:
 1. `UIManager.cs` - a file to be attached to the `Canvas` element to disable all 
 buttons at the start of the game.
 
-2. `CollisionScript.cs` - in this demo of the collision, you will see the call 
+2. `CollisionScript.cs` - in this collision demo, you will see the call 
 to the `EnableButtonByTag()` method, which activates a UI element based on the 
 given tag.
 
 *Note:* The use of `UIManager.cs` requires that the buttons array 
 field be initialized from the inspector before starting the game.
 
-Here is a look at the new script `UIManager.cs`
+### UIManager.cs 
+
+Here is a look at the new script `UIManager.cs`.
 
 ```cs
 using System.Collections;
@@ -74,14 +74,35 @@ field of the `UIMangaer.cs` script.
 The `EnableButtonByTag()` method provides a `tag` string parameter to find an object by
 its tag and set its `interactable` property to `true`.
 
+### Collision Script
 
+Below is `CollisionScript.cs`.
 
+```cs
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
 
+public class CollisionScript : MonoBehaviour
+{
+    private UIManager uiManager;
 
-### Thursday 16 May
+    private void Start()
+    {
+        uiManager = FindObjectOfType<UIManager>();
+    }
 
-1. We will create a UI Manager script 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (gameObject.tag == "foo" && collision.gameObject.tag == "bar" ||
+            gameObject.tag == "bar" && collision.gameObject.tag == "foo")
+        {
+          uiManager.EnableButtonByTag("foobar");
+        }
+    }
+}
+```
 
-2. Follow steps listed in `UIManager.cs`
+Notice the `uiManager` reference, which allows us to access its `EnableButtonByTag()` method.
 
-3. Refactor previous scripts and remove unused or unnecessary code.
