@@ -45,6 +45,14 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void EnableStarterButtons() 
+    {
+       for (int = 0; i < 4; i++) 
+       {
+          buttons[i].interactable = true;
+       }
+    }
+
     // Method to enable all buttons
     public void EnableAllButtons()
     {
