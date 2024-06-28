@@ -52,6 +52,8 @@ public string GetCombinationTag(string tag1, string tag2) {
         if (tag1 == "fire" && tag2 == "air")
         {
             return "water vapor"; // fix capitalization to match actual tag name
+        } else {
+            return "no value found";
         }
 
     }
