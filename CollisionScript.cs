@@ -38,6 +38,8 @@ public class CollisionScript : MonoBehaviour
         if (tag1.CompareTag("fire") && tag2.CompareTag("air"))
         {
             return "water vapor"; // fix capitalization to match actual tag name
+        } else {
+            return "no value found";
         }
 
     }
