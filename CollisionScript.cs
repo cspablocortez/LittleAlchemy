@@ -35,7 +35,7 @@ public class CollisionScript : MonoBehaviour
 
         // 3. Using CompareTag we'll produce the new one.
 
-        if (tag1.CompareTag("fire") && tag2.CompareTag("air"))
+        if (tag1 =="fire" && tag2 == "air")
         {
             return "water vapor"; // fix capitalization to match actual tag name
         } else {
