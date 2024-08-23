@@ -5,10 +5,11 @@ Thursday, August 22, 2024.
 
 # What's Next
 
-- Dynamic dock that resizes according to number of element
+- Dynamic dock that resizes according to number of element (introducing scriptable objects)
 - Background music via [Beepbox](https://beepbox.co)
 - Sound effects for events, e.g., combinations, failed combinations, new game, starting over, etc.
 - Button images [Piskel](https://www.piskelapp.com)
+
 
 # Project Breakdown
 
