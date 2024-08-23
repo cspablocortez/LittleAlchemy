@@ -5,18 +5,21 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public Button[] buttons; // Assign all the buttons in the inspector
+    public Button[] buttons;
 
-    private void Start()
+    // Start is called before the first frame update
+    void Start()
     {
-        // Make all buttons non-interactable at the start
         foreach (Button button in buttons)
         {
             button.interactable = false;
+            Image buttonImage = button.GetComponent<Image>();
+            buttonImage.color = new Color(buttonImage.color.r, buttonImage.color.g, buttonImage.color.b, 0f);
         }
+        EnableStarterButtons();
     }
 
-    // Method to enable all buttons
+    // Update is called once per frame
     public void EnableAllButtons()
     {
         foreach (Button button in buttons)
@@ -25,15 +28,29 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    // Method to enable button by tag
-    public void EnableButtonByTag(string tag) 
+    public void EnableStarterButtons()
     {
-          // Find and activate the button with the combined tag
-            GameObject buttonObject = GameObject.FindGameObjectWithTag(tag); // this replaces one of the existing functions in ButtonActivation.cs
-            if (buttonObject != null)
-            {
-                buttonObject.GetComponent<UnityEngine.UI.Button>().interactable = true;
-            }
+         for (int i = 0; i < 4; i++)
+        {
+            buttons[i].interactable = true;
+            Image buttonImage = buttons[i].GetComponent<Image>();
+            buttonImage.color = new Color(buttonImage.color.r, buttonImage.color.g, buttonImage.color.b, 255f);
+        }
     }
 
+    public void EnableButtonByTag(string tag)
+    {
+
+        GameObject buttonObject = GameObject.FindGameObjectWithTag(tag); 
+        if (buttonObject == null)
+        {
+            Debug.LogError("No button with tag " + tag + " found.");
+        }
+        else
+        {
+            buttonObject.GetComponent<UnityEngine.UI.Button>().interactable = true;
+            Image buttonImage = buttonObject.GetComponent<Image>();
+            buttonImage.color = new Color(buttonImage.color.r, buttonImage.color.g, buttonImage.color.b, 255f);
+        }
+    }
 }
