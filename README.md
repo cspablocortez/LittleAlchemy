@@ -3,13 +3,17 @@
 The set of C# scripts for Brandon's Little Alchemy Unity project resumed on
 Thursday, August 22, 2024.
 
-# Step 1
+# What's Next
 
-We began by verifying that the `Canvas` element had a `UIManager.cs` script,
-with its Button[] array field variable initialized to the buttons held by the 
-scrollbar object.
+- Dynamic dock that resizes according to number of element
+- Background music via [Beepbox](https://beepbox.co)
+- Sound effects for events, e.g., combinations, failed combinations, new game, starting over, etc.
+- Button images [Piskel](https://www.piskelapp.com)
 
-# Step 2
+# Project Breakdown
+
+All projects cover foundational CS concepts and then progressively increase in difficulty. 
+For example, we started with a series of if-statements before moving onto dictionaries.
 
 Within `UIManager` there are three methods:
 
