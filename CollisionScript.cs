@@ -6,124 +6,39 @@ using UnityEngine.UI;
 public class CollisionScript : MonoBehaviour
 {
     private UIManager uiManager;
+    private Dictionary<(string, string), string> collisionResults;
 
     void Start()
     {
         uiManager = FindObjectOfType<UIManager>();
         Debug.Log(uiManager);
+
+        collisionResults = new Dictionary<(string, string), string>
+        {
+            { ("fire", "water"), "water vapor" },
+            { ("fire", "earth"), "lava" },
+            { ("water", "earth"), "mud" },
+            { ("lava", "water"), "rock" },
+            { ("mud", "rock"), "clay" },
+            { ("air", "rock"), "sand" },
+            { ("fire", "air"), "smoke" },
+            { ("water vapor", "water vapor"), "cloud" },
+            { ("fire", "clay"), "brick" },
+            { ("fire", "smoke"), "electric" },
+            { ("electric", "cloud"), "thunder cloud" },
+        };
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("OnCollisionEnter in CollisionScript.cs has activated");
+        string tag1 = gameObject.tag;
+        string tag2 = collision.gameObject.tag;
 
-        if (gameObject.tag == "fire" && collision.gameObject.tag == "water" ||
-            gameObject.tag == "water" && collision.gameObject.tag == "fire")
+        if (collisionResults.TryGetValue((tag1, tag2), out string result) ||
+            collisionResults.TryGetValue((tag2, tag1), out result))
         {
-            uiManager.EnableButtonByTag("water vapor");
-            Destroy(this.gameObject);
-        }
-
-
-        if (gameObject.tag == "fire" && collision.gameObject.tag == "earth" ||
-        gameObject.tag == "earth" && collision.gameObject.tag == "fire")
-        {
-            uiManager.EnableButtonByTag("lava");
-            Destroy(this.gameObject);
-        }
-
-
-        if (gameObject.tag == "water" && collision.gameObject.tag == "earth" ||
-      gameObject.tag == "earth" && collision.gameObject.tag == "water")
-        {
-            uiManager.EnableButtonByTag("mud");
-            Destroy(this.gameObject);
-        }
-
-
-        if (gameObject.tag == "lava" && collision.gameObject.tag == "water" ||
-    gameObject.tag == "water" && collision.gameObject.tag == "lava")
-        {    
-            uiManager.EnableButtonByTag("rock");
-            Destroy(this.gameObject);
-        }
-
-
-        if (gameObject.tag == "mud" && collision.gameObject.tag == "rock" ||
-gameObject.tag == "rock" && collision.gameObject.tag == "mud")
-        {  
-            uiManager.EnableButtonByTag("clay");
-            Destroy(this.gameObject);
-        }
-
-
-        if (gameObject.tag == "air" && collision.gameObject.tag == "rock" ||
-gameObject.tag == "rock" && collision.gameObject.tag == "air")
-        {
-            uiManager.EnableButtonByTag("sand");
-            Destroy(this.gameObject);
-        }
-
-
-        if (gameObject.tag == "fire" && collision.gameObject.tag == "air" ||
-gameObject.tag == "air" && collision.gameObject.tag == "fire")
-        {
-            uiManager.EnableButtonByTag("smoke");
-            Destroy(this.gameObject);
-        }
-
-
-        if (gameObject.tag == "water vapor" && collision.gameObject.tag == "water vapor")
-        {
-            uiManager.EnableButtonByTag("cloud");
-            Destroy(this.gameObject);
-        }
-
-
-        if (gameObject.tag == "fire" && collision.gameObject.tag == "clay" ||
-gameObject.tag == "clay" && collision.gameObject.tag == "fire")
-        {
-            uiManager.EnableButtonByTag("brick");
-            Destroy(this.gameObject);
-        }
-
-
-        if (gameObject.tag == "fire" && collision.gameObject.tag == "clay" ||
-gameObject.tag == "clay" && collision.gameObject.tag == "fire")
-        {
-            uiManager.EnableButtonByTag("brick");
-            Destroy(this.gameObject);
-        }
-
-
-        if (gameObject.tag == "fire" && collision.gameObject.tag == "smoke" ||
-gameObject.tag == "smoke" && collision.gameObject.tag == "fire")
-        {
-            uiManager.EnableButtonByTag("electric");
-            Destroy(this.gameObject);
-        }
-
-
-        if (gameObject.tag == "electric" && collision.gameObject.tag == "cloud" ||
-gameObject.tag == "cloud" && collision.gameObject.tag == "electric")
-        {
-            uiManager.EnableButtonByTag("thunder cloud");
-            Destroy(this.gameObject);
-        }
-
-
-        if (gameObject.tag == "electric" && collision.gameObject.tag == "smoke" ||
-gameObject.tag == "smoke" && collision.gameObject.tag == "electric")
-        {
-            uiManager.EnableButtonByTag("steam generator");
-            Destroy(this.gameObject);
-        }
-
-
-        if (gameObject.tag == "brick" && collision.gameObject.tag == "rock" ||
-gameObject.tag == "rock" && collision.gameObject.tag == "brick")
-        {
-            uiManager.EnableButtonByTag("castle");
+            Debug.Log(result);
+            uiManager.EnableButtonByTag(result);
             Destroy(this.gameObject);
         }
     }
