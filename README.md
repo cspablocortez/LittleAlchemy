@@ -1,12 +1,7 @@
 # LittleAlchemy
 
-# Homework
-
-* Remove the `combination.cs` script from executing at all on *any* GameObject.
-
-
 The set of C# scripts for Brandon's Little Alchemy Unity project resumed on
-Thursday, June 20, 2024.
+Thursday, August 22, 2024.
 
 # Step 1
 
